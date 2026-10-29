@@ -1,0 +1,219 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Figtree", ui-sans-serif, system-ui, sans-serif;
+
+  --animate-fade-up: fade-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  --animate-fade-in: fade-in 0.5s ease-out forwards;
+  --animate-scale-in: scale-in 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  --animate-float: float 8s ease-in-out infinite;
+  --animate-float-delayed: float 11s ease-in-out 2s infinite;
+  --animate-drift: drift 18s linear infinite;
+  --animate-drift-reverse: drift-reverse 22s linear infinite;
+  --animate-pulse-soft: pulse-soft 4s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.2s ease-in-out infinite;
+  --animate-spin-slow: spin 28s linear infinite;
+  --animate-rain: rain-fall 0.85s linear infinite;
+  --animate-snow: snow-fall 6s linear infinite;
+  --animate-twinkle: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-14px) translateX(6px);
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translateX(-10%) translateY(0);
+  }
+  to {
+    transform: translateX(10%) translateY(-4%);
+  }
+}
+
+@keyframes drift-reverse {
+  from {
+    transform: translateX(8%) translateY(0);
+  }
+  to {
+    transform: translateX(-8%) translateY(3%);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes rain-fall {
+  from {
+    transform: translateY(-120%) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.55;
+  }
+  to {
+    transform: translateY(120vh) translateX(-8px);
+    opacity: 0;
+  }
+}
+
+@keyframes snow-fall {
+  from {
+    transform: translateY(-10%) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  to {
+    transform: translateY(110vh) translateX(24px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+.stagger-1 {
+  animation-delay: 0.08s;
+  opacity: 0;
+}
+.stagger-2 {
+  animation-delay: 0.16s;
+  opacity: 0;
+}
+.stagger-3 {
+  animation-delay: 0.24s;
+  opacity: 0;
+}
+.stagger-4 {
+  animation-delay: 0.32s;
+  opacity: 0;
+}
+.stagger-5 {
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+.stagger-6 {
+  animation-delay: 0.48s;
+  opacity: 0;
+}
+
+.shimmer-bar {
+  background: linear-gradient(
+    90deg,
+    rgb(255 255 255 / 0.08) 0%,
+    rgb(255 255 255 / 0.28) 50%,
+    rgb(255 255 255 / 0.08) 100%
+  );
+  background-size: 200% 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe\:animate-fade-up,
+  .motion-safe\:animate-fade-in,
+  .motion-safe\:animate-scale-in,
+  .motion-safe\:animate-float,
+  .motion-safe\:animate-float-delayed,
+  .motion-safe\:animate-drift,
+  .motion-safe\:animate-drift-reverse,
+  .motion-safe\:animate-pulse-soft,
+  .motion-safe\:animate-shimmer,
+  .motion-safe\:animate-spin-slow,
+  .motion-safe\:animate-rain,
+  .motion-safe\:animate-snow,
+  .motion-safe\:animate-twinkle {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .stagger-1,
+  .stagger-2,
+  .stagger-3,
+  .stagger-4,
+  .stagger-5,
+  .stagger-6 {
+    opacity: 1;
+  }
+}
+
